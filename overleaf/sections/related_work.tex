@@ -1,0 +1,28 @@
+\section{Related Work}
+\label{sec:related}
+
+\paragraph{LLM offensive capability against sandboxes.}
+SandboxEscapeBench~\cite{sandboxescapebench} evaluates whether frontier models can
+break out of containerized environments spanning orchestration, container-runtime,
+and kernel-level vulnerabilities, reporting that frontier models reliably escape common
+misconfigurations such as privileged containers, exposed Docker sockets, and writable host mounts. Our work reuses these
+scenarios but inverts the question, measuring the effect of defenses rather than
+the raw offensive ceiling.
+
+\paragraph{Defenses as a capability ceiling.}
+PACEbench~\cite{pacebench} evaluates LLM agents against web applications protected by
+production WAFs (ModSecurity CRS, Naxsi, Coraza) and reports that none of seven frontier
+models bypassed them. Whether the same ``ceiling effect'' holds for
+container/sandbox escape is untested; we evaluate this hypothesis directly.
+
+\paragraph{Container hardening guidance.}
+Operational guidance for container hardening (capability dropping, seccomp
+profiles, read-only root filesystems, user-namespace remapping, minimal images,
+and userspace kernels such as gVisor) is codified in community benchmarks and
+vendor documentation~\cite{cisdocker,gvisor}. These sources prescribe controls but
+do not quantify their marginal effect against an autonomous LLM attacker, which is
+the gap we address.
+
+\paragraph{Evaluation tooling.}
+We build on the Inspect AI evaluation framework~\cite{inspectai}, extending it with
+a per-control hardening wrapper and a reference-exploit verification harness.

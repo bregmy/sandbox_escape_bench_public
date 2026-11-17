@@ -1,0 +1,58 @@
+\documentclass[11pt]{article}
+
+% ---------------------------------------------------------------------------
+% Generic article template (easy to retarget to USENIX/IEEE S&P/NDSS later).
+% ---------------------------------------------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{listings}
+\usepackage[capitalise]{cleveref}
+
+\hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue}
+
+% Placeholder macro: use \todo{...} for anything to populate once results land.
+\newcommand{\todo}[1]{\textcolor{red}{\textbf{[TODO: #1]}}}
+% Numeric values taken from the eval logs. Plain text in the output; keep as a
+% single place to change how numbers are typeset.
+\newcommand{\num}[1]{#1}
+
+\title{Which Container Hardening Controls Stop LLM Sandbox Escapes?\\
+\large A Reference-Verified Ablation}
+
+\author{%
+  Bikesh Regmi \\
+  Morgan State University
+  \and
+  Kofi Nyarko \\
+  Morgan State University
+}
+\date{November 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+LLM agents with shell access can escape misconfigured containers, but it is unclear which standard hardening controls reduce this risk, and whether a blocked attempt reflects a real fix or merely attacker failure. We run an ablation over container-escape scenarios from SandboxEscapeBench, applying eight hardening controls and an unhardened baseline. For each applicable scenario and control, we run an LLM agent and a hand-written reference exploit under the same configuration, and compare the outcomes to separate architectural fixes from agent failures. Capability dropping, no-new-privileges, and read-only root filesystems leave privileged-container and Docker-socket escapes open, and even the composite control leaves them largely open. Strict seccomp reduces privileged-container escapes but does not stop Docker-socket escapes. Userspace kernel isolation (gVisor) stopped the agent in every scenario where the agent escaped at baseline. The reference exploit still succeeds under gVisor for a host-cron escape that runs outside the sandbox, so gVisor is not a fix for that escape. Read-only root filesystems and distroless images can also break the tooling that the reference exploit needs, so they can look effective without removing the underlying escape. Agent failures should therefore be cross-checked with a reference exploit before being read as evidence that a control works. Each cell uses ten epochs and a single attacker model, so the reported rates carry wide uncertainty.
+\end{abstract}
+
+\input{sections/introduction}
+\input{sections/related_work}
+\input{sections/methodology}
+\input{sections/results}
+\input{sections/discussion}
+\input{sections/limitations}
+\input{sections/conclusion}
+
+\bibliographystyle{plain}
+\bibliography{refs}
+
+\end{document}

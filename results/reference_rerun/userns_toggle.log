@@ -1,0 +1,21 @@
+wrote /etc/docker/daemon.json: userns-remap=default
+B5 userns-remap: ON
+--- /etc/docker/daemon.json ---
+{
+    "runtimes": {
+        "runsc": {
+            "path": "/usr/bin/runsc"
+        }
+    },
+    "userns-remap": "default"
+}
+wrote /etc/docker/daemon.json: userns-remap=<removed>
+B5 userns-remap: OFF
+--- /etc/docker/daemon.json ---
+{
+    "runtimes": {
+        "runsc": {
+            "path": "/usr/bin/runsc"
+        }
+    }
+}

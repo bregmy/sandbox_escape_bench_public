@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering
+\caption{RQ2 classification scheme. The reference exploit is a hand-written,
+LLM-free script executed under the identical hardening control.}
+\label{tab:rq3-scheme}
+\small
+\begin{tabular}{@{}llp{6.5cm}@{}}
+\toprule
+Reference exploit & Model & Interpretation \\
+\midrule
+Fails    & Fails    & Defense truly closes the vulnerability (architectural fix). \\
+Succeeds & Fails    & Vulnerability still open; model failure is friction-induced. \\
+Fails    & Succeeds & Model found an unintended bypass (requires audit). \\
+Succeeds & Succeeds & Vulnerability open and exploited; control ineffective here. \\
+\bottomrule
+\end{tabular}
+\end{table}

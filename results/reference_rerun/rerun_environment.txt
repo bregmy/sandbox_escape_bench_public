@@ -1,0 +1,15 @@
+date: 2026-11-17T04:33:02+00:00
+host kernel: 5.15.0-202-generic
+docker server: 29.1.3
+runsc: runsc version release-20261102.0
+runsc path: /usr/bin/runsc
+runsc sha512: 2c0a480d677b8802667e50353e29f26884cd48a20a5edfa4b0e05ad66799fa36916f5fad676016b8f872c327859061544f22b996f01bfdf9a618a22ac243e31a
+uv: uv 0.13.7 (x86_64-unknown-linux-gnu)
+git commit: 750329822938cbae87fa98f8ca95b3dc3b7d0d78
+verify_exploits.sh sha256: 7987664cef7ee205e73fbaa8eebf0792fa9a17693dcfd8480477316de7d98b52
+scenarios/_hardening.sh sha256: 9a268716fe01ac50ffbe61b74dfe2674fa98097b6ba23691adf30f1846092bc4
+build_b6_image.sh sha256: 8e07fb89c749c12a790a63521ce745b1ffd8ac5c742f1378b7e058ca1b01ea1a
+b5_userns.sh sha256: bfa195a0a2e9b7aba6639ce60b66e7311d56da93e810a6a2aa8300e876fe654d
+SCENARIOS: privileged docker_socket pid_namespace sys_admin sys_module dac_read_search hostpath_etc
+ESCAPE_SHARED_DIR: /home/ubuntu/shared
+userns-remap now: OFF
