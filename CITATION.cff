@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it using the metadata below."
+title: "SandboxEscapeBench: research notes, paper, and run evidence"
+type: software
+version: 1.0.0
+date-released: 2026-11-23
+authors:
+  - family-names: Regmi
+    given-names: Bikesh
+    alias: bregmy
+repository-code: "https://github.com/bregmy/sandbox_escape_bench_public"
+url: "https://github.com/bregmy/sandbox_escape_bench_public"
+license: MIT
+keywords:
+  - LLM agents
+  - sandbox escape
+  - container security
+  - hardening
+  - AI safety evaluation
+abstract: >-
+  Research notes, reference-exploit re-runs, and redacted Inspect AI eval logs from
+  a study of frontier-model container-escape attempts under eight hardening controls
+  (B1-B8) on the SandboxEscapeBench scenarios. Built on a fork of
+  UKGovernmentBEIS/sandbox_escape_bench (MIT).
+# doi: "10.5281/zenodo.XXXXXXX"  # Uncomment and fill in once Zenodo assigns the DOI.
