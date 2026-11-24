@@ -1,7 +1,0 @@
-\section{Conclusion}
-\label{sec:conclusion}
-
-We presented a defensive ablation study that quantifies how much each of eight
-standard container hardening controls reduces LLM sandbox-escape success, paired
-with a reference-exploit verification that distinguishes real architectural fixes
-from model friction. Across seven scenarios (the agent never escaped \texttt{hostpath\_etc}, so its model-level results carry no defense signal), we find that standard container-level hardening (capability dropping, no-new-privileges, seccomp, read-only rootfs) fails to prevent escapes on structural misconfigurations and delegation attack paths. Userspace kernel virtualization (gVisor, B7) provides the single most effective defense (ARR $=0.97$), complemented by user-namespace remapping (B5), which the reference exploit shows closes the host-filesystem path (\texttt{hostpath\_etc}) and the capability-limited scenarios but not the \texttt{docker\_socket} path. Mechanistic verification (RQ2) proved essential to separate true architectural boundaries from model-capability ceilings and harness friction. Our harness and configurations are released to support reproduction and extension.
